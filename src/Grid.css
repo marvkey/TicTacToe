@@ -1,0 +1,7 @@
+.grid{
+    display: grid;
+    margin-top:2rem;/* Grid spacing */
+    justify-content:center;
+    grid-template-columns: repeat(3,8rem);/* 3 differetn columns*/
+    grid-template-rows: minmax(8em,auto) repeat(3,8rem);/* hieght of our boxes */
+}
