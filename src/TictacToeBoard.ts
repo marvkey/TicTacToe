@@ -9,6 +9,11 @@ export default class tictactoeBoard{
         this.m_Grid.push(new ticElement(i))
       }
     }
+    reset(){
+      this.m_Grid.forEach((element) => {
+        element.reset()
+      })
+    }
     GetElement(index:number):ticElement{
       return this.m_Grid[index]
     }
@@ -24,9 +29,20 @@ export default class tictactoeBoard{
       this.m_CurrentTurn = "X"
       return true
     }
-  
+    isGameTie(): boolean {  
+      this.m_Grid.forEach(element =>{
+        if(element.GetState() =="")
+          return false
+      })
+      return true
+      /*
+      return this.m_Grid
+          .map((element) => element.GetState() === "")
+          .filter(element => element === false) !== []
+          */
+    }
     isWon(player:string): boolean{
-      // Checkinf for each row
+      // Checking for each row
       
       let possible = true
       for(let i = 0; i < 3;i++){
